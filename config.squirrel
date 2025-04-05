@@ -19,5 +19,5 @@
         "--for-linker=--max-memory=65536",
         "-Os"
     ],
-    "wamrc flags": ["--target=armv4"],
+    "wamrc flags": ["--target=armv4"]
 }
