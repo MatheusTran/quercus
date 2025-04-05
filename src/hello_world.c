@@ -3,9 +3,7 @@
 
 export int main(void) {
 	while (1) {
-		led_set_color(0x0000FF);
-		sleep(1000);
-		led_set_color(0x000000);
+        printf("hello world!\n");
 		sleep(1000);
 	}
 

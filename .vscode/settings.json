@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.z4": "javascriptreact",
+        "quercus_lib_pico.h": "c"
+    }
+}
