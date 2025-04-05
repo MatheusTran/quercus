@@ -7,7 +7,7 @@
         "default": "blink_red.c",
     },
     "build_path": "build",
-    "C flags": ['-Wall', '-Wextra', '-Wno-incompatible-library-redeclaration'],
+    "C flags": ["-Wall", "-Wextra", "-Wno-incompatible-library-redeclaration"],
     "wasm flags": [
         "-target wasm32",
         "-nostdlib",
@@ -19,5 +19,5 @@
         "--for-linker=--max-memory=65536",
         "-Os"
     ],
-    "wamrc flags": ["--target=armv4"]
+    "wamrc flags": ["--target=armv4"],
 }
