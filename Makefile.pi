@@ -1,0 +1,45 @@
+# Makefile for building WebAssembly and AOT binaries
+
+# Tools
+CC       = clang
+WAMRC    ?= wamrc
+
+# Files
+SRC      = $(PI_SRC)
+WASM     = $(PI_SRC).wasm
+AOT      = $(PI_SRC).aot
+
+# Compilation flags for building WebAssembly
+# -Wall: Enable all warnings
+# -Wextra: Enable extra warnings
+# -Wno-incompatible-library-redeclaration: Suppress warnings about redefined functions
+# since we are not using the real stdlib anyway
+CFLAGS   = -Wall -Wextra -Wno-incompatible-library-redeclaration
+WASM_OPTS = -target wasm32 -nostdlib \
+           -Wl,--export=__heap_base,--export=__data_end,--export=__global_base \
+           -Wl,--no-entry \
+           -Wl,--warn-unresolved-symbols,--import-undefined \
+           -Wl,--export-dynamic \
+           -Wl,-z,stack-size=2097152 \
+           -Wl,--initial-memory=67108864,--max-memory=67108864 \
+           -Oz
+
+# Options for wamrc to compile wasm to AOT
+WAMRC_OPTS = --target=armv4 --target-abi=eabi --cpu=cortex-a53 --xip -v=1
+
+# Default target builds the AOT binary
+all: $(AOT)
+
+# Build the WebAssembly binary from C source
+$(WASM): $(SRC)
+	$(CC) $(CFLAGS) $(WASM_OPTS) $(SRC) -o $(WASM)
+
+# Build the AOT binary from the WebAssembly binary
+$(AOT): $(WASM)
+	$(WAMRC) $(WAMRC_OPTS) -o $(AOT) $(WASM)
+
+# Clean up build artifacts
+clean:
+	rm -f $(WASM) $(AOT)
+
+.PHONY: all clean
