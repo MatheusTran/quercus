@@ -2,8 +2,8 @@
 
 # Files
 SRC      = $(PICO_SRC)
-WASM     = $(BUILD_DIR)/$(PICO_SRC).wasm
-AOT      = $(BUILD_DIR)/$(PICO_SRC).aot
+WASM     = $(BUILD_DIR)/$(TARGET).wasm
+AOT      = $(BUILD_DIR)/$(TARGET).aot
 
 # Compilation flags for building WebAssembly
 # -Wall: Enable all warnings
