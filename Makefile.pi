@@ -28,11 +28,11 @@ all: $(AOT)
 
 # Build the WebAssembly binary from C source
 $(WASM): $(SRC)
-	$(CC) $(CFLAGS) $(WASM_OPTS) $(SRC) -o $(WASM)
+	@$(CC) $(CFLAGS) $(WASM_OPTS) $(SRC) -o $(WASM)
 
 # Build the AOT binary from the WebAssembly binary
 $(AOT): $(WASM)
-	$(WAMRC) $(WAMRC_OPTS) -o $(AOT) $(WASM)
+	@$(WAMRC) $(WAMRC_OPTS) -o $(AOT) $(WASM)
 
 # Clean up build artifacts
 clean:
