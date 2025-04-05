@@ -4,7 +4,7 @@
         "pi": "hello_world.c",
         "1": "blink_blue.c",
         "2": "blink_green.c",
-        "default": "blink_red.c",
+        "default": "blink_red.c"
     },
     "build_path": "build",
     "C flags": ["-Wall", "-Wextra", "-Wno-incompatible-library-redeclaration"],
