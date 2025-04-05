@@ -1,13 +1,9 @@
 # Makefile for building WebAssembly and AOT binaries
 
-# Tools
-CC       = clang
-WAMRC    ?= wamrc
-
 # Files
 SRC      = $(PI_SRC)
-WASM     = $(PI_SRC).wasm
-AOT      = $(PI_SRC).aot
+WASM     = $(BUILD_DIR)/$(PI_SRC).wasm
+AOT      = $(BUILD_DIR)/$(PI_SRC).aot
 
 # Compilation flags for building WebAssembly
 # -Wall: Enable all warnings

@@ -1,13 +1,9 @@
 # Makefile for building WebAssembly and AOT binaries
 
-# Tools
-CC       = clang
-WAMRC    ?= wamrc
-
 # Files
 SRC      = $(PICO_SRC)
-WASM     = $(PICO_SRC).wasm
-AOT      = $(PICO_SRC).aot
+WASM     = $(BUILD_DIR)/$(PICO_SRC).wasm
+AOT      = $(BUILD_DIR)/$(PICO_SRC).aot
 
 # Compilation flags for building WebAssembly
 # -Wall: Enable all warnings

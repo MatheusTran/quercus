@@ -1,5 +1,5 @@
-#include "quercus_lib_pico.h"
-#include "libc_builtin.h"
+#include "quercus/quercus_lib_pico.h"
+#include "quercus/libc_builtin.h"
 
 export int main(void) {
 	while (1) {
